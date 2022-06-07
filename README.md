@@ -7,7 +7,28 @@
 
 ## Mission Statement: To provide a platform where people can connect with each other through shared interests.
 
-## Tech Stack: We’re using Java 8, Junit, Mockito, Jackson Library, Spring Boot, Hibernate, Azure SQL, Azure Apps Service, Spring Security and Spring for the back-end portion of development. On the front-end, we’re using HTML, CSS, JavaScript, ReactJS and Material UI. We’re also utilizing Git for version control and GitHub for remote repositories.
+## Tech Stack:
+
+## Back-End -
+Java 8
+Junit
+Mockito
+Jackson Library
+Spring Boot
+Hibernate
+Azure SQL
+Azure Apps Service
+Spring Security
+Spring
+
+## Front-End - 
+- HTML
+- CSS
+- JavaScript
+- ReactJS
+- Material UI
+
+- We’re also utilizing Git for version control and GitHub for remote repositories.
 
 ## Target Demo: 17-54
 
