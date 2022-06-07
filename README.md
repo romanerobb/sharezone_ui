@@ -11,14 +11,23 @@
 
 ## Back-End -
 - Java 8
+
 - Junit
+
 - Mockito
+
 - Jackson Library
+
 - Spring Boot
+
 - Hibernate
+
 - Azure SQL
+
 - Azure Apps Service
+
 - Spring Security
+
 - Spring
 
 ## Front-End - 
