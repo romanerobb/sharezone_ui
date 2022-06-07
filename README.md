@@ -7,7 +7,7 @@
 
 ## Mission Statement: To provide a platform where people can connect with each other through shared interests.
 
-## Tech Stack:
+## **Tech Stack**
 
 ## Back-End -
 - Java 8
