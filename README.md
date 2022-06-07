@@ -9,7 +9,7 @@
 
 ## **Tech Stack**
 
-## Back-End -
+## - Back-End -
 - Java 8
 
 - Junit
@@ -30,7 +30,7 @@
 
 - Spring
 
-## Front-End - 
+## - Front-End - 
 - HTML
 - CSS
 - JavaScript
