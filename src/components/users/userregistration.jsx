@@ -151,7 +151,7 @@ export default function UserRegistration() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="/home" variant="body1">
+                  <Link href="/useraccount" variant="body1">
                     Forgot password?
                   </Link>
                 </Grid>

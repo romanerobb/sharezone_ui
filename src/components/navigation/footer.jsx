@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
+import { Button } from "@mui/material";
 
 export default function Footer() {
 
@@ -9,24 +10,22 @@ export default function Footer() {
         
         <nav>
             <br></br>
-            <Link to="/">
-                <button class="p-3 mb-2 bg-primary text-white">Terms and Conditions</button>
+            <Link to="/termsandconditions">
+                <button>Terms and Conditions</button>
             </Link>
             <span> </span>
-            <Link to="/login">
-                <button class="p-3 mb-2 bg-secondary text-white">Privacy Policy</button>
+            <Link to="/privacypolicy">
+                <button>Privacy Policy</button>
             </Link>
             <span> </span>
-            <Link to="/register">
-                <button class="p-3 mb-2 bg-warning text-dark">Partner Up!</button>
-            </Link>
+                <Button variant="outlined" color="secondary" href="/adminlogin">Admin Login</Button>
             <span> </span>
-            <Link to="/menu">
-                <button class="p-3 mb-2 bg-dark text-white">About Us</button>
+            <Link to="/about">
+                <button>About Us</button>
             </Link>
             <span> </span>
             <Link to="/contact">
-                <button class="p-3 mb-2 bg-success text-white">Contact Us</button>
+                <button>Contact Us</button>
             </Link>
             <br></br>
             <br></br>

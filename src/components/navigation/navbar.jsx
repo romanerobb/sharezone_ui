@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import { Button } from "@mui/material";
+import { BoxProps } from "@mui/material";
 
 export default function NavBar() {
 
@@ -8,25 +9,10 @@ export default function NavBar() {
 
     return (
         <nav>
-            <Link to="/">
-                <Button variant="contained" color="success" size="large">Home</Button>
-            </Link>
-            <span> </span>
-            <Link to="/login">
-                <Button variant="contained" color="primary" size="large">Login</Button>
-            </Link>
-            <span> </span>
-            <Link to="/register">
-                <Button variant="contained" color="warning" size="large">Join Us</Button>
-            </Link>
-            <span> </span>
-            <Link to="/menu">
-                <Button variant="contained" color="secondary" size="large">TheZone</Button>
-            </Link>
-            <span> </span>
-            <Link to="/admin">
-                <Button variant="contained" color="success" size="large">Admin</Button>
-            </Link>
+            <Button variant="contained" color="success" size="large" href="/">Home</Button>
+            <Button variant="contained" color="primary" size="large" href="/login">Login</Button>
+            <Button variant="contained" color="warning" size="large" href="/register">Join Us</Button>
+            <Button variant="contained" color="secondary" size="large" href="/thezone">The Zone</Button>
         </nav>
     );
 }
