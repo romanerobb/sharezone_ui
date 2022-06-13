@@ -97,7 +97,7 @@ export default function AdminLogin() {
                     autoComplete="current-password"
                   />
                   <FormControlLabel
-                    control={<Checkbox value="remember" color="secondary" />}
+                    control={<Checkbox value="remember" color="error" />}
                     label="Remember me"
                   />
                   <Button

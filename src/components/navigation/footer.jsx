@@ -10,18 +10,18 @@ export default function Footer() {
         
         <nav>
             <br></br>
+            <Link to="/about">
+                <button>About Us</button>
+            </Link>
+            <span> </span>
             <Link to="/termsandconditions">
                 <button>Terms and Conditions</button>
             </Link>
             <span> </span>
+            <Button variant="outlined" color="secondary" href="/adminlogin">Admin Login</Button>
+            <span> </span>
             <Link to="/privacypolicy">
                 <button>Privacy Policy</button>
-            </Link>
-            <span> </span>
-                <Button variant="outlined" color="secondary" href="/adminlogin">Admin Login</Button>
-            <span> </span>
-            <Link to="/about">
-                <button>About Us</button>
             </Link>
             <span> </span>
             <Link to="/contact">
