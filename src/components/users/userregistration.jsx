@@ -12,12 +12,15 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useRef } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="/about">
         ShareZone Corporation
       </Link>{' '}
       {new Date().getFullYear()}
@@ -29,18 +32,62 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function UserRegistration() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      first_name: data.get("first name"),
-      last_name: data.get("last name"),
-      email: data.get('email address'),
-      username: data.get('username'),
-      password: data.get('password'),
-      age: data.get('age'),
-    });
-  };
+
+  const navigate = useNavigate();
+
+  const url = "https://sharezone.azurewebsites.net"
+
+  const usernameInput = useRef();
+  const fnameInput = useRef();
+  const lnameInput = useRef();
+  const emailaddressInput = useRef();
+  const userpasswordInput = useRef();
+  const ageInput = useRef();
+  const isadminInput = useRef();
+  const issubscriberInput = useRef();
+
+  async function userReg(){
+
+    const userprofile = {
+        
+        username: usernameInput.current.value,
+        fname: fnameInput.current.value,
+        lname: lnameInput.current.value,
+        emailaddress: emailaddressInput.current.value,
+        userpassword: userpasswordInput.current.value,
+        age: ageInput.current.value,
+        is_admin: isadminInput.current.value,
+        is_subscriber: issubscriberInput.current.value
+
+    }
+
+  //   {
+  //     "username": "user7",
+  //     "fname": "jacky",
+  //     "lname": "robb",
+  //     "emailaddress": "user6@gmail.com",
+  //     "userpassword": "password",
+  //     "age": 20,
+  //     "is_admin": false,
+  //     "is_subscriber": true
+  // }
+  
+
+    // if (userprofile.userPassword === "") {
+    //     alert("You have failed to enter a valid password! Please try again!");
+    // if (userprofile.username === "")
+    //     alert("You have failed to enter a valid username! Please try again!");
+    // }else navigate("/user");
+    
+    try{
+        const response = await axios.post(`${url}/register`, userprofile)
+        console.log(response.data)
+    } catch (error) {
+        console.error(error.response.data)
+        console.log(error)
+        alert(error.response.data);
+    }
+}
 
   return (
     <ThemeProvider theme={theme}>
@@ -60,6 +107,8 @@ export default function UserRegistration() {
             backgroundPosition: 'center',
           }}
         />
+
+
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
@@ -76,73 +125,40 @@ export default function UserRegistration() {
             <Typography component="h1" variant="h9">
               Register
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-            <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="first_name"
-                label="First Name"
-                name="first name"
-                autoComplete="first name"
-                autoFocus
-              />
-            <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="last_name"
-                label="Last Name"
-                name="last name"
-                autoComplete="last name"
-                autoFocus
-              />
-            <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="username"
-                label="Username"
-                name="username"
-                autoComplete="username"
-                autoFocus
-              />
-            <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-            <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="age"
-                label="Age"
-                name="age"
-                autoComplete="age"
-                autoFocus
-              />
+            <Box component="form" onClick={userReg} sx={{ mt: 1 }}>
+
+            <br></br>
+            <input margin="normal" placeholder="Enter Username" ref={usernameInput}></input>
+            <br></br>
+            <br></br>
+            <input placeholder="Enter First Name" ref={fnameInput}></input>
+            <br></br>
+            <br></br>
+            <input placeholder="Enter Last Name" ref={lnameInput}></input>
+            <br></br>
+            <br></br>
+            <input type="password" placeholder="Enter password" ref={userpasswordInput}></input>
+            <br></br>
+            <br></br>
+            <input placeholder="Enter email address" ref={emailaddressInput}></input>
+            <br></br>
+            <br></br>
+            <input placeholder="age" ref={ageInput}></input>
+            <br></br>
+            <br></br>
+            <input placeholder="subscriber" ref={issubscriberInput}></input>
+            <br></br>
+            <br></br>
+            <input placeholder="admin" ref={isadminInput}></input>
+            <br></br>
+            <br></br>
+
               <FormControlLabel
                 control={<Checkbox value="remember" color="success" />}
                 label="Remember me"
               />
               <Button
-                type="submit"
+                type="onClick"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
@@ -151,14 +167,10 @@ export default function UserRegistration() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="/useraccount" variant="body1">
-                    Forgot password?
-                  </Link>
+                  <Link href="/termsandconditions" variant="body1">{"terms and conditions!"}</Link>
                 </Grid>
                 <Grid item>
-                  <Link href="/home" variant="body1">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
+                  <Link href="/thezone" variant="body1">{"the zone!"}</Link>
                 </Grid>
               </Grid>
               <Copyright sx={{ mt: 5 }} />
@@ -166,6 +178,8 @@ export default function UserRegistration() {
           </Box>
         </Grid>
       </Grid>
+
+
     </ThemeProvider>
   );
 }
