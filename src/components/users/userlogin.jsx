@@ -25,31 +25,18 @@ export default function UserLogin() {
   const url = "https://sharezone.azurewebsites.net"
 
   const usernameInput = useRef();
-  const fnameInput = useRef();
-  const lnameInput = useRef();
-  const emailaddressInput = useRef();
   const userpasswordInput = useRef();
-  const ageInput = useRef();
-  const isadminInput = useRef();
-  const issubscriberInput = useRef();
 
   async function login(){
 
     const userprofile = {
         
         username: usernameInput.current.value,
-        fname: fnameInput.current.value,
-        lname: lnameInput.current.value,
-        emailaddress: emailaddressInput.current.value,
         userpassword: userpasswordInput.current.value,
-        age: ageInput.current.value,
-        is_admin: isadminInput.current.value,
-        is_subscriber: issubscriberInput.current.value
-
     }
     
     try{
-        const response = await axios.post(`${url}/register`, userprofile)
+        const response = await axios.post(`${url}/auth`, userprofile)
         console.log(response.data)
         navigate("/user");
     } catch (error) {

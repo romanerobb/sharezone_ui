@@ -1,10 +1,11 @@
 import React from "react";
+import { Typography } from "@mui/material";
 
 export default function UserMessages() {
 
     return (
         <>
-        <h1>Welcome To Our Website!</h1> 
+        <Typography component="h5" variant="h5">Check Your Messages</Typography>
         </>
         
         );
