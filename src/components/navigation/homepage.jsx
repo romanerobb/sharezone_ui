@@ -11,9 +11,12 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import ReplyAllIcon from '@mui/icons-material/ReplyAll';
+import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
+import FollowTheSignsIcon from '@mui/icons-material/FollowTheSigns';
+import GetAppIcon from '@mui/icons-material/GetApp';
     
     const ExpandMore = styled((props) => {
       const { expand, ...other } = props;
@@ -37,14 +40,14 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
         <Card sx={{ maxWidth: 800 }}>
           <CardHeader
             avatar={
-              <Avatar sx={{ bgcolor: red[500] }} aria-label="avatar">#entertainment</Avatar>
+              <Avatar sx={{ bgcolor: red[500] }} aria-label="avatar">SZ</Avatar>
             }
             action={
               <IconButton aria-label="settings">
-                <MoreVertIcon />
+                <MoreVertIcon href="https://twitter.com/intent/tweet?text=This is now the hottest on Sharezone! Join us now!"/>
               </IconButton>
             }
-        title="THE HOTTEST ON SHAREZONE!"
+            title="THE HOTTEST ON SHAREZONE!"
             {...new Date().getFullYear()}
           />
           <CardMedia
@@ -54,16 +57,17 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
             alt="The most shared content"
           />
           <CardContent>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body5" color="text.secondary">
               Welcome to sharezone.
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
             <IconButton aria-label="add to favorites">
               <FavoriteIcon />
-            </IconButton>
-            <IconButton aria-label="share">
-              <ShareIcon />
+              <ReplyAllIcon />
+              <ElectricBoltIcon />
+              <FollowTheSignsIcon />
+              <GetAppIcon />
             </IconButton>
             <ExpandMore
               expand={expanded}

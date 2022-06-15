@@ -34,7 +34,7 @@ function App() {
                 <userContext.Provider value={[user, setUser]}>
                     <NavBar />
                     <br></br>
-                    <Typography variant="h4" color="text.error">sharezone aims to be the number one platform where subject matter experts (SMEs) <br></br>share their knowledge with their interested community.</Typography>
+                    <Typography variant="h4" color="text.error">sharezone aims to be the number one platform where subject matter experts<br></br><strong><u>share</u></strong> their knowledge with their interested community.</Typography>
                     <br></br>
                     <Routes>
                         <Route exact path="" element={<HomePage />} />

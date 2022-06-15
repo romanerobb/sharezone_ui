@@ -30,8 +30,8 @@ export default function UserRegistration() {
   const emailaddressInput = useRef();
   const userpasswordInput = useRef();
   const ageInput = useRef();
-  const isadminInput = useRef();
-  const issubscriberInput = useRef();
+  // const isadminInput = useRef();
+  // const issubscriberInput = useRef();
 
   async function register(){
 
@@ -43,8 +43,8 @@ export default function UserRegistration() {
         emailaddress: emailaddressInput.current.value,
         userpassword: userpasswordInput.current.value,
         age: ageInput.current.value,
-        is_admin: isadminInput.current.value,
-        is_subscriber: issubscriberInput.current.value
+        // is_admin: isadminInput.current.value,
+        // is_subscriber: issubscriberInput.current.value
 
     }
     
@@ -107,12 +107,12 @@ export default function UserRegistration() {
             <br></br>
             <input size="80" placeholder="Please enter your email address" ref={emailaddressInput}></input>
             <br></br>
-            <input size="80" placeholder="How old are you?" ref={ageInput}></input>
+            <input size="80" placeholder="How old are you? Minimum age to join is 13." ref={ageInput}></input>
             <br></br>
-            <input size="80" placeholder="Are you a subscriber?" ref={issubscriberInput}></input>
+            {/* <input size="80" placeholder="Are you a subscriber?" ref={issubscriberInput}></input>
             <br></br>
             <input size="80" placeholder="Are you an admin?" ref={isadminInput}></input>
-            <br></br>
+            <br></br> */}
 
             <Button variant="contained" color="primary" onClick={register}>Sign Up</Button>
           </Box>

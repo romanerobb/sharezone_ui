@@ -18,7 +18,7 @@ export default function Footer() {
                 <button>Terms and Conditions</button>
             </Link>
             <span> </span>
-            <Button variant="outlined" color="secondary" href="/adminlogin">Admin Login</Button>
+            <Button variant="outlined" color="secondary" href="/adminlogin">Expert Login</Button>
             <span> </span>
             <Link to="/privacypolicy">
                 <button>Privacy Policy</button>

@@ -65,7 +65,6 @@ export default function UserLogin() {
           }}
         />
 
-
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
@@ -94,7 +93,6 @@ export default function UserLogin() {
           </Box>
         </Grid>
       </Grid>
-
 
     </ThemeProvider>
   );
