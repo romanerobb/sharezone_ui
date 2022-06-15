@@ -16,19 +16,6 @@ import { useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="/about">
-        ShareZone Corporation
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const theme = createTheme();
 
 export default function UserRegistration() {
@@ -46,7 +33,7 @@ export default function UserRegistration() {
   const isadminInput = useRef();
   const issubscriberInput = useRef();
 
-  async function userReg(){
+  async function register(){
 
     const userprofile = {
         
@@ -60,28 +47,11 @@ export default function UserRegistration() {
         is_subscriber: issubscriberInput.current.value
 
     }
-
-  //   {
-  //     "username": "user7",
-  //     "fname": "jacky",
-  //     "lname": "robb",
-  //     "emailaddress": "user6@gmail.com",
-  //     "userpassword": "password",
-  //     "age": 20,
-  //     "is_admin": false,
-  //     "is_subscriber": true
-  // }
-  
-
-    // if (userprofile.userPassword === "") {
-    //     alert("You have failed to enter a valid password! Please try again!");
-    // if (userprofile.username === "")
-    //     alert("You have failed to enter a valid username! Please try again!");
-    // }else navigate("/user");
     
     try{
         const response = await axios.post(`${url}/register`, userprofile)
         console.log(response.data)
+        navigate("/user");
     } catch (error) {
         console.error(error.response.data)
         console.log(error)
@@ -119,62 +89,32 @@ export default function UserRegistration() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'success.main' }}>
+            <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h9">
-              Register
+              User Registration
             </Typography>
-            <Box component="form" onClick={userReg} sx={{ mt: 1 }}>
+            <h4>Join now and engage with thought leaders and real experts in their respective industries.</h4>
 
+            <input size="80" placeholder="Please enter a username" ref={usernameInput}></input>
             <br></br>
-            <input margin="normal" placeholder="Enter Username" ref={usernameInput}></input>
+            <input size="80" placeholder="Please enter your first name" ref={fnameInput}></input>
             <br></br>
+            <input size="80" placeholder="Please enter your last name" ref={lnameInput}></input>
             <br></br>
-            <input placeholder="Enter First Name" ref={fnameInput}></input>
+            <input size="80" type="password" placeholder="Please enter a password" ref={userpasswordInput}></input>
             <br></br>
+            <input size="80" placeholder="Please enter your email address" ref={emailaddressInput}></input>
             <br></br>
-            <input placeholder="Enter Last Name" ref={lnameInput}></input>
+            <input size="80" placeholder="How old are you?" ref={ageInput}></input>
             <br></br>
+            <input size="80" placeholder="Are you a subscriber?" ref={issubscriberInput}></input>
             <br></br>
-            <input type="password" placeholder="Enter password" ref={userpasswordInput}></input>
-            <br></br>
-            <br></br>
-            <input placeholder="Enter email address" ref={emailaddressInput}></input>
-            <br></br>
-            <br></br>
-            <input placeholder="age" ref={ageInput}></input>
-            <br></br>
-            <br></br>
-            <input placeholder="subscriber" ref={issubscriberInput}></input>
-            <br></br>
-            <br></br>
-            <input placeholder="admin" ref={isadminInput}></input>
-            <br></br>
+            <input size="80" placeholder="Are you an admin?" ref={isadminInput}></input>
             <br></br>
 
-              <FormControlLabel
-                control={<Checkbox value="remember" color="success" />}
-                label="Remember me"
-              />
-              <Button
-                type="onClick"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Register
-              </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link href="/termsandconditions" variant="body1">{"terms and conditions!"}</Link>
-                </Grid>
-                <Grid item>
-                  <Link href="/thezone" variant="body1">{"the zone!"}</Link>
-                </Grid>
-              </Grid>
-              <Copyright sx={{ mt: 5 }} />
-            </Box>
+            <Button variant="contained" color="primary" onClick={register}>Sign Up</Button>
           </Box>
         </Grid>
       </Grid>

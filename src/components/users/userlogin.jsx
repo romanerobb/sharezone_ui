@@ -12,32 +12,52 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        ShareZone Corporation
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import { useRef } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 
 export default function UserLogin() {
-  
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+
+  const navigate = useNavigate();
+
+  const url = "https://sharezone.azurewebsites.net"
+
+  const usernameInput = useRef();
+  const fnameInput = useRef();
+  const lnameInput = useRef();
+  const emailaddressInput = useRef();
+  const userpasswordInput = useRef();
+  const ageInput = useRef();
+  const isadminInput = useRef();
+  const issubscriberInput = useRef();
+
+  async function login(){
+
+    const userprofile = {
+        
+        username: usernameInput.current.value,
+        fname: fnameInput.current.value,
+        lname: lnameInput.current.value,
+        emailaddress: emailaddressInput.current.value,
+        userpassword: userpasswordInput.current.value,
+        age: ageInput.current.value,
+        is_admin: isadminInput.current.value,
+        is_subscriber: issubscriberInput.current.value
+
+    }
+    
+    try{
+        const response = await axios.post(`${url}/register`, userprofile)
+        console.log(response.data)
+        navigate("/user");
+    } catch (error) {
+        console.error(error.response.data)
+        console.log(error)
+        alert(error.response.data);
+    }
+}
 
   return (
     <ThemeProvider theme={theme}>
@@ -52,11 +72,13 @@ export default function UserLogin() {
             backgroundImage: 'url(https://source.unsplash.com/random)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         />
+
+
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
@@ -67,62 +89,26 @@ export default function UserLogin() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <Avatar sx={{ m: 1, bgcolor: 'success.main' }}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h9">
-              Sign in
+              User Sign In
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="secondary" />}
-                label="Remember me"
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Sign In
-              </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
-              </Grid>
-              <Copyright sx={{ mt: 5 }} />
-            </Box>
+            <h4>Sign in and start engaging with industry experts!</h4>
+
+            <input size="80" placeholder="Please enter a username" ref={usernameInput}></input>
+            <br></br>
+            <input size="80" type="password" placeholder="Please enter a password" ref={userpasswordInput}></input>
+            <br></br>
+
+
+            <Button variant="contained" color="success" onClick={login}>Log In</Button>
           </Box>
         </Grid>
       </Grid>
+
+
     </ThemeProvider>
   );
 }

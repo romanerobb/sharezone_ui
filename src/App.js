@@ -19,6 +19,7 @@ import About from './components/about';
 import TermsAndConditions from './components/termsandconditions';
 import PrivacyPolicy from './components/privacypolicy';
 import ContactUs from './components/contactus';
+import UpdateUserAccount from './components/users/updateuser';
 
 export const userContext = createContext();
 
@@ -39,6 +40,7 @@ function App() {
                         <Route exact path="" element={<HomePage />} />
                         <Route path="user" element={<UserAccount />} />
                         <Route path="usermessages" element={<UserMessages />} />
+                        <Route path="updateuser" element={<UpdateUserAccount />} />
                         <Route path="deleteuseraccount" element={<DeleteUserAccount />} />
                         <Route path="login" element={<UserLogin />} />
                         <Route path="register" element={<UserRegistration />} />
