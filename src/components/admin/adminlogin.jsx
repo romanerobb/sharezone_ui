@@ -19,33 +19,43 @@ import { useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 
-export default function UserLogin() {
-
-  const navigate = useNavigate();
-
-  const url = "https://sharezone.azurewebsites.net"
+export default function AdminLogIn() {
 
   const usernameInput = useRef();
+  
   const userpasswordInput = useRef();
+  
+  // const is_adminInput = useRef();
+  
+  // const is_subscriberInput = useRef();
+  
+  const navigate = useNavigate();
+  
+  const url = "http://sharezone.azurewebsites.net"
 
   async function login(){
 
-    const userprofile = {
-        
-        username: usernameInput.current.value,
-        userpassword: userpasswordInput.current.value,
-    }
+    const admin = {
+
+      username: usernameInput.current.value,
+      userpassword: userpasswordInput.current.value,
+      // is_admin: true,
+      // is_subscriber: is_subscriberInput.current.value
+  };
     
-    try{
-        const response = await axios.post(`${url}/auth`, userprofile)
-        console.log(response.data)
-        navigate("/admin");
-    } catch (error) {
-        console.error(error.response.data)
-        console.log(error)
-        alert(error.response.data);
-    }
-}
+            try {
+                const response = await axios.post(`${url}/auth`, admin);
+                // is_admin = true;
+                console.log(response.data.is_admin);
+                if (response.data.is_admin === true) {
+                  navigate("/admin");
+                } else navigate("/");
+                console.log(response.data);
+            } catch (error) {
+                console.error(error.response.data);
+                alert(error.response.data);
+            }
+        }
     
       return (
         <ThemeProvider theme={theme}>
@@ -83,12 +93,16 @@ export default function UserLogin() {
                   Welcome Back, Expert!<br></br> Please Sign in!
                 </Typography>
                 <p>Your subject matter expertise is needed!</p>
-            <input size="80" placeholder="Please enter a username" ref={usernameInput}></input>
-            <br></br>
-            <input size="80" type="password" placeholder="Please enter a password" ref={userpasswordInput}></input>
-            <br></br>
 
-            <Button variant="contained" color="error" onClick={login}>Log In</Button>
+            <input size="80" placeholder="Enter username" ref={usernameInput}></input>
+            <br></br>
+            <input size="80" type="password" placeholder="Enter password" ref={userpasswordInput}></input>
+            <br></br>
+            {/* <input placeholder="is_admin" ref={is_adminInput}></input> 
+            <br></br>
+            <input placeholder="is_subscriber" ref={is_subscriberInput}></input> */}
+            <br></br>
+            <Button size="80" variant="contained" color="error" onClick={login}>Log In</Button>
           </Box>
         </Grid>
       </Grid>

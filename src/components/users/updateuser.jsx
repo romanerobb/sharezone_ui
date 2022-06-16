@@ -3,10 +3,12 @@ import { Typography, Avatar, Card, Button, Stack, LocationOn, IconButton, Chip, 
 import { Box } from "@mui/system";
 import axios from "axios";
 import React from "react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function UpdateUserAccount () {
+
+const [showUpdate, setShowUpdated] = useState(false);
 
   const navigate = useNavigate();
 
@@ -56,33 +58,33 @@ export default function UpdateUserAccount () {
         <>
         
         <Typography component="h5" variant="h5">Update Your Account</Typography>
-        <input size="80" placeholder="Please enter a username" ref={usernameInput}></input>
+        <input size="40" placeholder="Please enter a username" ref={usernameInput}></input>
             <br></br>
             <br></br>
-            <input size="80" placeholder="Please enter your first name" ref={fnameInput}></input>
+            <input size="40" placeholder="Please enter your first name" ref={fnameInput}></input>
             <br></br>
             <br></br>
-            <input size="80" placeholder="Please enter your last name" ref={lnameInput}></input>
+            <input size="40" placeholder="Please enter your last name" ref={lnameInput}></input>
             <br></br>
             <br></br>
-            <input size="80" type="password" placeholder="Please enter a password" ref={userpasswordInput}></input>
+            <input size="40" type="password" placeholder="Please enter a password" ref={userpasswordInput}></input>
             <br></br>
             <br></br>
-            <input size="80" placeholder="Please enter your email address" ref={emailaddressInput}></input>
+            <input size="40" placeholder="Please enter your email address" ref={emailaddressInput}></input>
             <br></br>
             <br></br>
-            <input size="80" placeholder="How old are you?" ref={ageInput}></input>
+            <input size="40" placeholder="How old are you?" ref={ageInput}></input>
             <br></br>
             <br></br>
-            <input size="80" placeholder="Are you a subscriber?" ref={issubscriberInput}></input>
+            <input size="40" placeholder="Are you a subscriber?" ref={issubscriberInput}></input>
             <br></br>
             <br></br>
-            <input size="80" placeholder="Are you an admin?" ref={isadminInput}></input>
+            <input size="40" placeholder="Are you an admin?" ref={isadminInput}></input>
             <br></br>
             <br></br>
 
-        <Button variant="contained" color="success" onClick={update}>Update Account</Button>
-
+        <Button variant="contained" color="success" onClick={() => {update(); setShowUpdated(!showUpdate)}}>Update Account</Button>
+        {showUpdate && <p><strong>You Have Successfully Updated Your Account</strong></p>}
         </>
 
     )

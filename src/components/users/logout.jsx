@@ -4,6 +4,7 @@ import { Box } from "@mui/system"
 import { Navigate } from "react-router-dom";
 import { useRef, useState } from "react"
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Logout () {
 
@@ -32,7 +33,7 @@ export default function Logout () {
     return (
         <>
         <br></br>
-        <Button variant="contained" color="primary" onClick={logout}>Logout</Button>
+        <Button variant="contained" color="secondary" href="/">Logout</Button>
         </>
     )
 }
