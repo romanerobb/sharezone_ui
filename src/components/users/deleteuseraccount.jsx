@@ -7,27 +7,28 @@ import axios from "axios";
 
 export default function DeleteUserAccount () {
 
-    const url = "https://zahfosha.azurewebsites.net"
-
     const usernameInput = useRef();
+
+    const url = "https://zahfosha.azurewebsites.net"
  
-     async function deleteCustomer(){
+    async function deleteCustomer(){
  
-         const userprofile = {
-             username: usernameInput.current.value
+         const user = {
+             username: usernameInput.current.value,
          }
  
-         if (usernameInput === "") {
+         if (usernameInput === " ") {
          alert("You have failed to enter a valid customer username! Please try again!");
  
          } try{
-             const response = await axios.delete(`${url}/userprofile?username=${usernameInput.current.value}`, userprofile)
+             const response = await axios.delete(`${url}/userprofile?username=${usernameInput.current.value}`, user)
              console.log(response)
              console.log(response.data)
              Navigate("/");
          }catch (error){
-             console.error(error.response.data)
-             console.error(error)
+            console.error(error.response.data)
+            console.log(error)
+            alert(error.response.data)
          }
  
      }

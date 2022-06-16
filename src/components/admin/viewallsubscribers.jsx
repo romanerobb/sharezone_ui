@@ -1,6 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import Button from '@mui/material/Button';
+import Table from '@mui/material/Table';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import * as React from 'react';
 
 export default function ViewAllSubscribers(){
 
@@ -16,9 +22,13 @@ export default function ViewAllSubscribers(){
                 const userProfileTableRows = items.map((e) => {
                     return (
                         <tr>
-                            <td>{e.userprofile}</td>
+                            <td>{e.username}</td>
+                            <td>{e.age}</td>
+                            <td>{e.emailaddress}</td>
+                            <td>{e.fname}</td>
                             <td>{e.is_admin}</td>
                             <td>{e.is_subscriber}</td>
+                            <td>{e.lname}</td>
                         </tr>
                     )
                    
@@ -32,20 +42,23 @@ export default function ViewAllSubscribers(){
 
         }
 
-
-
     return(
         <>
         <h2> View All Subscribers</h2>
 
         <Button variant="contained" color="primary" onClick={getAllSubscribers}>Press Here To View All Subscribers</Button>
     <br></br>
+
     <table>
         <thead>
             <tr>
-                <th>username</th>
-                <th>is_admin</th>
-                <th>is_subscriber</th>
+                <th>Username</th>
+                <th>Age</th>
+                <th>Email Address</th>
+                <th>First Name</th>
+                <th>Is Admin</th>
+                <th>Is Subscriber</th>
+                <th>Last Name</th>
             </tr>
         </thead>
         <tbody>{subscriptionBody}</tbody>
