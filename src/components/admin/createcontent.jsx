@@ -45,7 +45,7 @@ export default function CreateContent(){
         <input placeholder="Enter The Section" ref={sectionInput}></input>
         <br></br>
         <br></br>
-        <input size="80" placeholder="Enter The Content" ref={postcontentInput}></input> 
+        <input size="50" placeholder="Enter The Content" ref={postcontentInput}></input> 
         <br></br>
         <br></br>
         <input placeholder="Enter Display Picture" ref={displaypictureInput}></input>

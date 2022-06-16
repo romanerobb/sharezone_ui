@@ -63,7 +63,7 @@ export default function ViewContentBySection(){
     return(
         <>
         <h1>[Find Expert Knowledge By Section!]</h1>
-        <input size="80" placeholder="Enter the section here" ref={sectionInputs} /><br></br><br></br>
+        <input size="50" placeholder="Enter the section here" ref={sectionInputs} /><br></br><br></br>
         <Button variant="contained" color="success" onClick={getAllContentBySection}>Search Content By Section!</Button>
     <br></br>
 

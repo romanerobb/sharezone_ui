@@ -58,28 +58,28 @@ const [showUpdate, setShowUpdated] = useState(false);
         <>
         
         <Typography component="h5" variant="h5">Update Your Account</Typography>
-        <input size="40" placeholder="Please enter a username" ref={usernameInput}></input>
+        <input size="50" placeholder="Please enter a username" ref={usernameInput}></input>
             <br></br>
             <br></br>
-            <input size="40" placeholder="Please enter your first name" ref={fnameInput}></input>
+            <input size="50" placeholder="Please enter your first name" ref={fnameInput}></input>
             <br></br>
             <br></br>
-            <input size="40" placeholder="Please enter your last name" ref={lnameInput}></input>
+            <input size="50" placeholder="Please enter your last name" ref={lnameInput}></input>
             <br></br>
             <br></br>
-            <input size="40" type="password" placeholder="Please enter a password" ref={userpasswordInput}></input>
+            <input size="50" type="password" placeholder="Please enter a password" ref={userpasswordInput}></input>
             <br></br>
             <br></br>
-            <input size="40" placeholder="Please enter your email address" ref={emailaddressInput}></input>
+            <input size="50" placeholder="Please enter your email address" ref={emailaddressInput}></input>
             <br></br>
             <br></br>
-            <input size="40" placeholder="How old are you?" ref={ageInput}></input>
+            <input size="50" placeholder="How old are you?" ref={ageInput}></input>
             <br></br>
             <br></br>
-            <input size="40" placeholder="Are you a subscriber?" ref={issubscriberInput}></input>
+            <input size="50" placeholder="Are you a subscriber?" ref={issubscriberInput}></input>
             <br></br>
             <br></br>
-            <input size="40" placeholder="Are you an admin?" ref={isadminInput}></input>
+            <input size="50" placeholder="Are you an admin?" ref={isadminInput}></input>
             <br></br>
             <br></br>
 

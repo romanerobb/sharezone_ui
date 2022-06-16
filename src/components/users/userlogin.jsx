@@ -83,10 +83,10 @@ export default function UserLogin() {
             </Typography>
             <h4>Sign in and start engaging with industry experts!</h4>
 
-            <input size="80" placeholder="Please enter a username" ref={usernameInput}></input>
+            <input size="50" placeholder="Please enter a username" ref={usernameInput}></input>
             <br></br>
             <br></br>
-            <input size="80" type="password" placeholder="Please enter a password" ref={userpasswordInput}></input>
+            <input size="50" type="password" placeholder="Please enter a password" ref={userpasswordInput}></input>
             <br></br>
             <br></br>
 

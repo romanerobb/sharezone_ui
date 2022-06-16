@@ -94,16 +94,16 @@ export default function AdminLogIn() {
                 </Typography>
                 <p>Your subject matter expertise is needed!</p>
 
-            <input size="80" placeholder="Enter username" ref={usernameInput}></input>
+            <input size="50" placeholder="Enter username" ref={usernameInput}></input>
             <br></br>
             <br></br>
-            <input size="80" type="password" placeholder="Enter password" ref={userpasswordInput}></input>
+            <input size="50" type="password" placeholder="Enter password" ref={userpasswordInput}></input>
             <br></br>
             {/* <input placeholder="is_admin" ref={is_adminInput}></input> 
             <br></br>
             <input placeholder="is_subscriber" ref={is_subscriberInput}></input> */}
             <br></br>
-            <Button size="80" variant="contained" color="error" onClick={login}>Log In</Button>
+            <Button size="50" variant="contained" color="error" onClick={login}>Log In</Button>
           </Box>
         </Grid>
       </Grid>
