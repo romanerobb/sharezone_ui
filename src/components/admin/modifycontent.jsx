@@ -36,7 +36,7 @@ export default function ModifyContent(){
 
     }
 
-    return(
+    return (
         <>
         <h2>Please Update Content Below</h2>
         <input placeholder="Enter The ID" ref={idInput}></input>
@@ -54,7 +54,7 @@ export default function ModifyContent(){
         <input placeholder="Enter The Post Date" ref={postdateInput}></input>
         <br></br>
         <br></br>
-        <input  placeholder="Enter The USername" ref={usernameInput}></input>
+        <input  placeholder="Enter The Username" ref={usernameInput}></input>
         <br></br>
         <br></br>
         <Button variant="contained" color="primary" onClick={modifyContents}>Update Content</Button>

@@ -96,6 +96,7 @@ export default function AdminLogIn() {
 
             <input size="80" placeholder="Enter username" ref={usernameInput}></input>
             <br></br>
+            <br></br>
             <input size="80" type="password" placeholder="Enter password" ref={userpasswordInput}></input>
             <br></br>
             {/* <input placeholder="is_admin" ref={is_adminInput}></input> 

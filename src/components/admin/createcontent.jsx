@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useRef } from "react"
 import Button from '@mui/material/Button';
+import { TextField } from "@mui/material";
 
 export default function CreateContent(){
     const idInput = useRef();
@@ -44,10 +45,10 @@ export default function CreateContent(){
         <input placeholder="Enter The Section" ref={sectionInput}></input>
         <br></br>
         <br></br>
-        <input size="80" placeholder="Enter The Content" ref={postcontentInput}></input>
+        <input size="80" placeholder="Enter The Content" ref={postcontentInput}></input> 
         <br></br>
         <br></br>
-        <input  placeholder="Enter Display Picture" ref={displaypictureInput}></input>
+        <input placeholder="Enter Display Picture" ref={displaypictureInput}></input>
         <br></br>
         <br></br>
         <input placeholder="Enter The Post Date" ref={postdateInput}></input>

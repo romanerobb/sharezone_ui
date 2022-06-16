@@ -21,14 +21,12 @@ export default function DeleteUserAccount () {
          alert("You have failed to enter a valid customer username! Please try again!");
  
          } try{
-             const response = await axios.delete(`${url}/userprofile?username=${usernameInput.current.value}`, user)
+            const response = await axios.delete(`${url}/userprofile?username=${usernameInput.current.value}`, user)
              console.log(response)
              console.log(response.data)
              Navigate("/");
          }catch (error){
-            console.error(error.response.data)
             console.log(error)
-            alert(error.response.data)
          }
  
      }
@@ -42,7 +40,7 @@ export default function DeleteUserAccount () {
         <input placeholder="Enter your username" ref={usernameInput}></input>
         <br></br>
         <br></br>
-        <Button variant="contained" color="error" onClick={deleteCustomer}>Delete Your Account</Button>
+        <Button variant="contained" color="error" href="/" onClick={deleteCustomer}>Delete Your Account</Button>
         </>
     )
 }

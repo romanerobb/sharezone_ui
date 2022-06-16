@@ -85,9 +85,10 @@ export default function UserLogin() {
 
             <input size="80" placeholder="Please enter a username" ref={usernameInput}></input>
             <br></br>
+            <br></br>
             <input size="80" type="password" placeholder="Please enter a password" ref={userpasswordInput}></input>
             <br></br>
-
+            <br></br>
 
             <Button variant="contained" color="success" onClick={login}>Log In</Button>
           </Box>

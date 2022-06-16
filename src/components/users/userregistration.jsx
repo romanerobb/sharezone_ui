@@ -99,15 +99,21 @@ export default function UserRegistration() {
 
             <input size="80" placeholder="Please enter a username" ref={usernameInput}></input>
             <br></br>
+            <br></br>
             <input size="80" placeholder="Please enter your first name" ref={fnameInput}></input>
+            <br></br>
             <br></br>
             <input size="80" placeholder="Please enter your last name" ref={lnameInput}></input>
             <br></br>
+            <br></br>
             <input size="80" type="password" placeholder="Please enter a password" ref={userpasswordInput}></input>
+            <br></br>
             <br></br>
             <input size="80" placeholder="Please enter your email address" ref={emailaddressInput}></input>
             <br></br>
+            <br></br>
             <input size="80" placeholder="How old are you? Minimum age to join is 13." ref={ageInput}></input>
+            <br></br>
             <br></br>
             {/* <input size="80" placeholder="Are you a subscriber?" ref={issubscriberInput}></input>
             <br></br>

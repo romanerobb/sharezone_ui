@@ -17,17 +17,18 @@ export default function ViewAllSubscribers(){
         async function getAllSubscribers(){
 
             try{
-                const response = await axios.get(`${url}/userprofile-findall`, subscriptionBody)
-                const items = await response.data;
-                const userProfileTableRows = items.map((e) => {
+                const response = await axios.get(`${url}/userprofile-findall`)
+                const subscription = await response.data;
+                console.log(subscription)
+                const userProfileTableRows = subscription.map((e) => {
                     return (
                         <tr>
                             <td>{e.username}</td>
                             <td>{e.age}</td>
                             <td>{e.emailaddress}</td>
                             <td>{e.fname}</td>
-                            <td>{e.is_admin}</td>
-                            <td>{e.is_subscriber}</td>
+                            <td>{String(e.is_admin)}</td>
+                            <td>{String(e.is_subscriber)}</td>
                             <td>{e.lname}</td>
                         </tr>
                     )
@@ -44,9 +45,9 @@ export default function ViewAllSubscribers(){
 
     return(
         <>
-        <h2> View All Subscribers</h2>
+        <h2> View All Users</h2>
 
-        <Button variant="contained" color="primary" onClick={getAllSubscribers}>Press Here To View All Subscribers</Button>
+        <Button variant="contained" color="primary" onClick={getAllSubscribers}>Press Here To View All Users</Button>
     <br></br>
 
     <table>

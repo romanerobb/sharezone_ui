@@ -7,6 +7,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 
 export default function ViewAllContent(){
 
@@ -17,17 +20,18 @@ export default function ViewAllContent(){
         async function getAllContent(){
 
             try{
-                const response = await axios.get(`${url}/contents`, subscriptionBody)
-                const items = await response.data;
-                const contentsTableRows = items.map((e) => {
+                const response = await axios.get(`${url}/contents`)
+                const subscription = await response.data;
+                console.log(subscription)
+                const contentsTableRows = subscription.map((e) => {
                     return (
                         <tr>
-                            <td>{e.id}</td>
-                            <td>{e.displaypicture}</td>
-                            <td>{e.postcontent}</td>
-                            <td>{e.postdate}</td>
-                            <td>{e.section}</td>
-                            <td>{e.username}</td>
+                            <td align="center">{e.id}</td>
+                            <td align="center">{e.username.username}</td>
+                            <td align="center" word-wrap="break-word">{e.postcontent}</td>
+                            <td align="center">{e.displaypicture}</td>
+                            <td align="center">{e.postdate}</td>
+                            <td align="center">{e.section}</td>
                         </tr>
                     )                 
                 })
@@ -42,24 +46,19 @@ export default function ViewAllContent(){
     return(
         <>
         <h1>[Seek Knowledge From Experts!]</h1>
-
-        <Button variant="contained" color="secondary" onClick={getAllContent}>Press Here To View All Content!</Button>
+        
+        <Button variant="contained" color="secondary" onClick={getAllContent}>Click Here To View All Content!</Button>
     <br></br>
 
     <table>
         <thead>
             <tr>
-                <th>Content ID</th>
-                <br></br>
-                <th>Display Picture</th>
-                <br></br>
-                <th>Post Content</th>
-                <br></br>
-                <th>Post Date</th>
-                <br></br>
-                <th>Section</th>
-                <br></br>
-                <th>Expert Username</th>
+                <th align="center">ID</th>
+                <th align="center">Expert Username</th>
+                <th align="center">Post Content</th>
+                <th align="center">Supporting Link(s)</th>
+                <th align="center">Post Date</th>
+                <th align="center">Section</th>
             </tr>
         </thead>
         <tbody>{subscriptionBody}</tbody>

@@ -17,17 +17,17 @@ export default function ViewContentBySection(){
         async function getAllContentBySection(){
 
             try{
-                const response = await axios.get(`${url}/contents/findAllBySection?section=$`, subscriptionBody)
+                const response = await axios.get(`${url}/contents/findAllBySection?section=sports`, subscriptionBody)
                 const items = await response.data;
                 const contentsTableRows = items.map((e) => {
                     return (
                         <tr>
-                            <td>{e.id}</td>
-                            <td>{e.displaypicture}</td>
-                            <td>{e.postcontent}</td>
-                            <td>{e.postdate}</td>
-                            <td>{e.section}</td>
-                            <td>{e.username}</td>
+                            <td align="center">{e.id}</td>
+                            <td align="center">{e.username.username}</td>
+                            <td align="center">{e.displaypicture}</td>
+                            <td align="center" word-wrap="break-word">{e.postcontent}</td>
+                            <td align="center">{e.postdate}</td>
+                            <td align="center">{e.section}</td>
                         </tr>
                     )                 
                 })
@@ -42,24 +42,20 @@ export default function ViewContentBySection(){
     return(
         <>
         <h1>[Find Expert Knowledge By Section!]</h1>
-
-        <Button variant="contained" color="success" onClick={getAllContentBySection}>Press Here To View All Content!</Button>
+        <input size="80" placeholder="Please enter the section"></input><br></br><br></br>
+        <Button variant="contained" color="success" onClick={getAllContentBySection}>Search Content By Section!</Button>
     <br></br>
 
     <table>
         <thead>
             <tr>
-                <th>Content ID</th>
-                <br></br>
-                <th>Display Picture</th>
-                <br></br>
-                <th>Post Content</th>
-                <br></br>
-                <th>Post Date</th>
-                <br></br>
-                <th>Section</th>
-                <br></br>
-                <th>Expert Username</th>
+                <th align="center">Content ID</th>
+                <th align="center">Expert Username</th>
+                <th align="center">Supporting Link(s)</th>
+                <th align="center">Post Content</th>
+                <th align="center">Post Date</th>
+                <th align="center">Section</th>
+                
             </tr>
         </thead>
         <tbody>{subscriptionBody}</tbody>
