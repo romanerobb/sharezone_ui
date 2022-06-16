@@ -9,11 +9,11 @@ export default function CreateContent(){
     const postdateInput = useRef();
     const usernameInput = useRef();
 
-    const url = ""
+    const url = "http://sharezone.azurewebsites.net"
 
     async function createContents(){
 
-        const createContents = {
+        const content = {
             id: idInput.current.value,
             section: sectionInput.current.value,
             postcontent: postcontentInput.current.value,
@@ -22,7 +22,7 @@ export default function CreateContent(){
             username: usernameInput.current.value,
         }
         try{
-            const response = await axios.post(`${url}/contents` , content )
+            const response = await axios.post(`${url}/contents`, content )
             console.log(response)
             console.log(response.data)
         }catch(error){
@@ -36,9 +36,7 @@ export default function CreateContent(){
 
     return(
         <>
-        <h3>Welcome,  Add New Item To The Menu</h3>
-        <br></br>
-        <br></br>
+        <h3>Create New Content</h3>
         <br></br>
         <input placeholder="Enter The ID" ref={idInput}></input>
         <br></br>
@@ -50,7 +48,7 @@ export default function CreateContent(){
         <br></br>
         <input placeholder="Enter The Post Date" ref={postdateInput}></input>
         <br></br>
-        <input  placeholder="Enter The USername" ref={usernameInput}></input>
+        <input  placeholder="Enter The Username" ref={usernameInput}></input>
         <br></br>
         <button onClick={createContents}>Create Content</button>
         </>

@@ -5,21 +5,19 @@ export default function ViewAllSubscribers(){
 
         const [subscriptionBody, setSubscriptionBody] = useState();
 
-        const url = ""
+        const url = "http://sharezone.azurewebsites.net"
 
         async function getAllSubscribers(){
 
             try{
-                const response = await axios.get(`${url}/userprofile`)
+                const response = await axios.get(`${url}/userprofile-findall`, subscriptionBody)
                 const items = await response.data;
                 const userProfileTableRows = items.map((e) => {
                     return (
                         <tr>
-                            
                             <td>{e.userprofile}</td>
-                            <td>{e.email}</td>
                             <td>{e.is_admin}</td>
-                            <td>{String(e.is_subscriber)}</td>
+                            <td>{e.is_subscriber}</td>
                         </tr>
                     )
                    
@@ -37,17 +35,18 @@ export default function ViewAllSubscribers(){
 
     return(
         <>
-        <h1> View All Subscribers</h1>
-        <br></br>
-        <br></br>
+        <h3> View All Subscribers</h3>
+
         <button onClick={getAllSubscribers}>Press Here To View All Subscribers</button>
+    <br></br>
     <table>
         <thead>
             <tr>
-                
+            
                 <th>username</th>
-                <th>emailaddress</th>
                 <th>is_admin</th>
+                <th>is_subscriber</th>
+                
             </tr>
         </thead>
         <tbody>{subscriptionBody}</tbody>

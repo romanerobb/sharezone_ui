@@ -5,12 +5,13 @@ export default function DeleteContent(){
 
     const contentInput = useRef();
 
-    const url = ""
+    const url = "http://sharezone.azurewebsites.net"
 
     async function deleteContent(){
 
+
         try{
-            const response = await axios.delete(`${url}/contents/=${contentInput.current.value}` )
+            const response = await axios.delete(`${url}/contents/?id=${contentInput.current.value}` )
 
             console.log(response)
             console.log(response.data)
@@ -24,8 +25,7 @@ export default function DeleteContent(){
     return(
         <>
         <h3>Please enter the Content You Would Like To Delete</h3>
-        <br></br>
-        <input placeholder="Content" ref={contentInput}></input>
+        <input placeholder="id" ref={contentInput}></input>
         <button onClick={deleteContent}>Delete Content</button>
 
         </>

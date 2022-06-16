@@ -1,20 +1,24 @@
 import { useRef } from "react"
-
+import axios from "axios";
 
 
 export default function BanUserAccount(){
 
-    const userInput = useRef();
+    const usernameInput = useRef();
 
-    const url = " "
+    const url = "http://sharezone.azurewebsites.net"
 
     async function banUserAccount(){
 
+        const user = {
+            username: usernameInput.current.value,
+        }
+
         try{
-            const response = await axios.delete(`${url}/user/delete-Account?username=${userInput.current.value}`)
+            const response = await axios.delete(`${url}/userprofile?username=${usernameInput.current.value}`, user)
 
             console.log(response)
-            console.log(respomse.data)
+            console.log(response.data)
         }catch (error){
             console.error(error)
         }
@@ -25,8 +29,8 @@ export default function BanUserAccount(){
     return(
         <>
         <h3>Ban User Account.</h3>
-        <input placeholder="Enter Username Here" ref={userInput}></input>
-        <button onclick={banUserAccount}>Ban User Account </button>
+        <input placeholder="Enter Username Here" ref={usernameInput}></input>
+        <button onClick={banUserAccount}>Ban User Account </button>
         </>
     )
 }

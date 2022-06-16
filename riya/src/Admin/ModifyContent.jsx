@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useRef } from "react"
 
 export default function ModifyContent(){
 
@@ -9,7 +10,7 @@ export default function ModifyContent(){
     const postdateInput = useRef();
     const usernameInput = useRef();
 
-    const url = ""
+    const url = "http://sharezone.azurewebsites.net"
 
     async function modifyContents(){
 

@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import axios from "axios";
 
 export default function UpdateAccount(){
 
@@ -10,7 +11,7 @@ export default function UpdateAccount(){
     const userpasswordInput = useRef();
     const is_adminInput = useRef();
    
-    const url = ""
+    const url = "http://sharezone.azurewebsites.net/userprofile?username=user1"
 
 
     async function accountUpdate(){
