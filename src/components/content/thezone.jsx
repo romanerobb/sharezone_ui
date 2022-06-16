@@ -9,8 +9,8 @@ export default function TheZone() {
 return(
 
     <>
-    <ViewAllContent />
-    <ViewContentBySection />
+    {/* <ViewAllContent />
+    <ViewContentBySection /> */}
     </>
 )
 
