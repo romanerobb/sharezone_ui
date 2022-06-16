@@ -16,6 +16,7 @@ export default function NavBar(){
             <button onClick={() => navigate("create")}>Create</button>
             <button onClick={() => navigate("admin")}>Admin</button>
             <button onClick={() => navigate("admin-login")}>Admin LogIn</button>
+            <button onClick={() => navigate("the-zone")}>TheZone</button>
 
 
             </nav>

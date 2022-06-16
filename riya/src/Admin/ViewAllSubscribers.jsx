@@ -7,10 +7,10 @@ export default function ViewAllSubscribers(){
 
         const url = "http://sharezone.azurewebsites.net"
 
-        async function getAllSubscribers(){
+        async function getallSubscriber(){
 
             try{
-                const response = await axios.get(`${url}/userprofile-findall`)
+                const response = await axios.get(`${url}/userprofile-findallSubscriber`)
                 const subscription = await response.data;
                 console.log(subscription)
                 const userProfileTableRows = subscription.map((e) => {
@@ -44,7 +44,7 @@ export default function ViewAllSubscribers(){
         <>
         <h3> View All Subscribers</h3>
 
-        <button onClick={getAllSubscribers}>Press Here To View All Subscribers</button>
+        <button onClick={getallSubscriber}>Press Here To View All Subscribers</button>
     <br></br>
     <table>
         <thead>

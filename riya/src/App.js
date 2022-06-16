@@ -10,6 +10,7 @@ import UpdateAccount from "./Admin/UpdateAccount";
 import ViewAllSubscribers from "./Admin/ViewAllSubscribers";
 import NavBar from "./NavBar";
 import Welcome from "./Welcome";
+import TheZone from "./Zone/TheZone";
 
 
 
@@ -32,6 +33,8 @@ function App() {
     <Route path="admin"element={<Admin/>}/>
     <Route path="admin-login"element={<AdminLogIn/>}/>
     <Route path="delete-comment"element={<DeleteComment/>}/>
+    <Route path="the-zone"element={<TheZone/>}/>
+
 
     
 
