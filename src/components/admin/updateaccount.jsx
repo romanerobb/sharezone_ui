@@ -66,7 +66,7 @@ export default function UpdateAccount(){
          <input type="password" placeholder="Update User password" ref={userpasswordInput}></input>
          <br></br>
          <br></br>
-        <Button variant="contained" color="primary" onClick={() => {accountUpdate(); setShowUpdated(!showUpdate)}}>Updatee Account</Button>
+        <Button variant="contained" color="primary" onClick={() => {accountUpdate(); setShowUpdated(!showUpdate)}}>Update Account</Button>
         {showUpdate && <p><strong>Updating Account Successful!</strong></p>}
         
         </>

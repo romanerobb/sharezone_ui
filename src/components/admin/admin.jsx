@@ -24,6 +24,8 @@ export default function Admin() {
         <Grid item xs={4}>
         <CreateContent />
         <br></br>
+        <br></br>
+        <br></br>
         <ModifyContent />
         <br></br>
         </Grid>
@@ -31,13 +33,7 @@ export default function Admin() {
         <ViewAllSubscribers />
         <UpdateAccount />
         <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <Logout />
+        
         </Grid>
         <Grid item xs={4}>
         {/* <DeleteComment /> */}
@@ -48,6 +44,15 @@ export default function Admin() {
         <BanUserAccount />
         <br></br>
         <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <Logout />
         </Grid>
       </Grid>
 
