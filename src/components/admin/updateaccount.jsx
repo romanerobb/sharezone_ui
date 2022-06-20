@@ -1,8 +1,10 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import axios from "axios";
 import Button from '@mui/material/Button';
 
 export default function UpdateAccount(){
+
+    const [showUpdate, setShowUpdated] = useState(false);
 
     const fnameInput = useRef();
     const lnameInput = useRef();
@@ -24,6 +26,7 @@ export default function UpdateAccount(){
             fname: fnameInput.current.value,
             lname: lnameInput.current.value,
             emailaddress: emailaddressInput.current.value,
+            age:ageInput.current.value,
             userpassword: userpasswordInput.current.value,
             is_admin: true
         }
@@ -63,7 +66,8 @@ export default function UpdateAccount(){
          <input type="password" placeholder="Update User password" ref={userpasswordInput}></input>
          <br></br>
          <br></br>
-        <Button variant="contained" color="primary" onClick={accountUpdate}>Update Account</Button>
+        <Button variant="contained" color="primary" onClick={() => {accountUpdate(); setShowUpdated(!showUpdate)}}>Updatee Account</Button>
+        {showUpdate && <p><strong>Updating Account Successful!</strong></p>}
         
         </>
     )

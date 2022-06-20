@@ -1,8 +1,9 @@
 import axios from "axios";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Button from '@mui/material/Button';
 
 export default function ModifyContent(){
+    const [showModify, setShowModified] = useState(false);
 
     const idInput = useRef();
     const sectionInput = useRef();
@@ -36,6 +37,13 @@ export default function ModifyContent(){
 
     }
 
+    const today = new Date();
+    const year = today.getFullYear();
+    const day = today.getDate();
+    const month = today.getMonth()+1;
+    const newdate = month + "/" + day + "/" + year;
+ 
+
     return (
         <>
         <h2>Please Update Content Below</h2>
@@ -48,16 +56,19 @@ export default function ModifyContent(){
         <input size="50" placeholder="Enter The Content" ref={postcontentInput}></input>
         <br></br>
         <br></br>
-        <input  placeholder="Enter Display Picture" ref={displaypictureInput}></input>
+        <input  placeholder="Enter The Link" ref={displaypictureInput}></input>
         <br></br>
         <br></br>
-        <input placeholder="Enter The Post Date" ref={postdateInput}></input>
+        {/* <input placeholder="Enter The Post Date" ref={postdateInput}></input> */}
+        <input value = {newdate} ref={postdateInput} >
+   </input>
         <br></br>
         <br></br>
         <input  placeholder="Enter The Username" ref={usernameInput}></input>
         <br></br>
         <br></br>
-        <Button variant="contained" color="primary" onClick={modifyContents}>Update Content</Button>
+        <Button variant="contained" color="primary" onClick={() => {modifyContents(); setShowModified(!showModify)}}>Modify Content</Button>
+        {showModify && <p><strong>Content Update Sucessful</strong></p>}
         </>
     )
 }

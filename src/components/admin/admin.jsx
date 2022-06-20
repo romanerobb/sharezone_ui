@@ -40,9 +40,10 @@ export default function Admin() {
         <Logout />
         </Grid>
         <Grid item xs={4}>
-        <DeleteComment />
-        <br></br>
+        {/* <DeleteComment /> */}
         <DeleteContent />
+        <br></br>
+        <br></br>
         <br></br>
         <BanUserAccount />
         <br></br>

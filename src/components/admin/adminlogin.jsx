@@ -13,8 +13,14 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useRef } from "react";
+//import {userContext} from "../../App"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {  useState } from "react";
+import { CompressOutlined } from '@mui/icons-material';
+
+//export const userContext = createContext();
+
 
 
 const theme = createTheme();
@@ -25,9 +31,9 @@ export default function AdminLogIn() {
   
   const userpasswordInput = useRef();
   
-  // const is_adminInput = useRef();
-  
-  // const is_subscriberInput = useRef();
+  //const [admin, setAdmin] = useContext(userContext);
+
+
   
   const navigate = useNavigate();
   
@@ -39,14 +45,17 @@ export default function AdminLogIn() {
 
       username: usernameInput.current.value,
       userpassword: userpasswordInput.current.value,
-      // is_admin: true,
+     // is_admin: false,
       // is_subscriber: is_subscriberInput.current.value
   };
     
             try {
                 const response = await axios.post(`${url}/auth`, admin);
-                // is_admin = true;
-                console.log(response.data.is_admin);
+                //setAdmin({...admin, username:admin.username, userpassword: admin.userpassword, is_admin: response.data.is_admin})
+               // console.log(response.data.is_admin);
+               // console.log(admin.username);
+               // console.log(admin.password);
+               // console.log(admin.is_admin);
                 if (response.data.is_admin === true) {
                   navigate("/admin");
                 } else navigate("/");
