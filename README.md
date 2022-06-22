@@ -1,6 +1,8 @@
  
 ## Web Application Name: ShareZone
 
+## Description: Sharezone is a web application where users come to get knowledge in various areas (technology, sports, arts, science, etc.) from our selected experts. On the sharezone platform, experts are allowed to create the content, and the users engage with the content. If a user chooses to subscribe, then the experts can email them exclusive content. The sharezone API/back-end was built using Java 8 and Spring Boot while the UI/front-end was built using React and Material UI. The database was created via Microsoft Azure SQL and deployment was accomplished via Microsoft Azure Apps Service.
+
 ## Focus: A diversified media outlet that covers technology, sports, entertainment, and health.
 
 ## Team: Kenyatta Martin, Jacky Koo, Soyoung Lee, Riya Parajuli, and Romane Robb.
